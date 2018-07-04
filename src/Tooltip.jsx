@@ -60,6 +60,14 @@ class Tooltip extends Component {
       />,
     ])
   }
+
+  getPopupDomNode() {
+    return this.trigger.getPopupDomNode()
+  }
+
+  saveTrigger = (node) => {
+    this.trigger = node
+  }
 }
 
 export default Tooltip
