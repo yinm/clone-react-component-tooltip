@@ -26,5 +26,19 @@ describe('rc-tooltip', () => {
       verifyContent(wrapper, 'Tooltip content')
     })
 
+    it('using a function overlay', () => {
+      const wrapper = mount(
+        <Tooltip
+          trigger={['click']}
+          placement="left"
+          overlay={() => (<strong className="x-content">Tooltip content</strong>)}
+        >
+          <div className="target">Click this</div>
+        </Tooltip>
+      )
+
+      wrapper.find('.target').simulate('click')
+      verifyContent(wrapper, 'Tooltip content')
+    })
   })
 })
