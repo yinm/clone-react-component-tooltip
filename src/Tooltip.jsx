@@ -44,6 +44,22 @@ class Tooltip extends Component {
     trigger: ['hover'],
     arrowContent: null,
   }
+
+  getPopupElement = () => {
+    const { arrowContent, overlay, prefixCls, id } = this.props
+    return ([
+      <div className={`${prefixCls}-arrow`} key="arrow">
+        {arrowContent}
+      </div>,
+      <Content
+        key="content"
+        trigger={this.trigger}
+        prefixCls={prefixCls}
+        id={id}
+        overlay={overlay}
+      />,
+    ])
+  }
 }
 
 export default Tooltip
